@@ -2,6 +2,7 @@
 float x,y,t;
 color c;
 color f;
+float dx;
 
 void setup(){
   size(700,700);
@@ -10,6 +11,7 @@ void setup(){
   t = 200;
   c = color(255,0,0);
   f = color(255);
+  dx = 1;
   background(f);
 }
 
@@ -18,9 +20,10 @@ void draw(){
   fill(c);
   noStroke();
   circle(x,y,t);
-  x = x+1;
-  if(x==width){
+  x+= dx;
+ 
+  if(x+t/2>=width){
     println("el circulo llegó al limite derecho");
-    x= x-1;
-  }
+    dx*= -1;
+  } 
 }
